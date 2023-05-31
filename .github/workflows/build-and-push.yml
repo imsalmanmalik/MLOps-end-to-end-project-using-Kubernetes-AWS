@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  REPOSITORY: ml-ops-end-to-end
+  REPOSITORY: salmanmalik98/ml-ops-end-to-end
 
 jobs:
   build-and-push:
@@ -20,6 +20,7 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v1 
       with:
+        registry: ${{ env.REGISTRY }}
         username: salmanmalik98
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
