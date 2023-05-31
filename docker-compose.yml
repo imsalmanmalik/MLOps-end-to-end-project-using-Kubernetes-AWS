@@ -3,6 +3,7 @@ version: '3'
 services:
   pysparkapi:
     build: pysparkapi/
+    image: docker.io/salmanmalik98/ml-ops-end-to-end-pysparkapi:latest
     ports:
       - 5000:5000
     networks:
@@ -11,6 +12,7 @@ services:
 
   streamlitapi:
     build: streamlitapi/
+    image: docker.io/salmanmalik98/ml-ops-end-to-end-streamlitapi:latest
     depends_on:
       - pysparkapi
     ports:
