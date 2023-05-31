@@ -18,9 +18,10 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 
 # Docker Images
 
-Docker images are hosted on Docker Hub.
+Docker images are hosted on Docker Hub under `salmanmalik98`
 
-[Repository](https://hub.docker.com/r/salmanmalik98/ml-ops-end-to-end)
+* docker.io/salmanmalik98/ml-ops-end-to-end-streamlitapi:latest
+* docker.io/salmanmalik98/ml-ops-end-to-end-pysparkapi:latest
 
 # Quick start
 
