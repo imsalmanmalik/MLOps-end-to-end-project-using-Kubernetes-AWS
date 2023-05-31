@@ -1,4 +1,4 @@
-# sparkml-model-deployment
+# MLOps-end-to-end-project
 End-to-end prediction model development using PySpark with Docker and Streamlit
 
 ### Adapted from the book 'Applied Data Science using PySpark' from R. Kakarla, S. Krishnan and S. Alla
@@ -16,3 +16,27 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 * Establish API connect using Postman 
 * Create a Docker compose file to build CI/CD pipeline between the backend PySpark API and Streamlit API
 
+# Docker Images
+
+Docker images are hosted on Docker Hub under `salmanmalik98`
+
+* docker.io/salmanmalik98/ml-ops-end-to-end-streamlitapi:latest
+* docker.io/salmanmalik98/ml-ops-end-to-end-pysparkapi:latest
+
+# Quick start
+
+By default docker-compose uses images defined in the file with `latest` tag.
+
+```shell
+docker-compose up -d
+```
+
+# Development
+
+When in development mode use below command to build the image to get quick feedback loop for fixes / new features.
+
+This will build docker image from local build context
+
+```shell
+docker-compose up -d --build
+```
