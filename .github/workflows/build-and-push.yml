@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: salmanmalik98/ml-ops-end-to-end
+  REPOSITORY: ml-ops-end-to-end
 
 jobs:
   build-and-push:
@@ -28,11 +28,11 @@ jobs:
       with:
         context: ./pysparkapi
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-pysparkapi:latest
+        tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}-pysparkapi:latest
 
     - name: Build and push Docker images for Streamlit API
       uses: docker/build-push-action@v2
       with:
         context: ./streamlitapi
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-streamlitapi:latest
+        tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}-streamlitapi:latest
