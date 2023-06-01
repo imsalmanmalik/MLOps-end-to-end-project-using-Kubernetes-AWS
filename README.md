@@ -5,14 +5,14 @@ End-to-end prediction model development using PySpark with Docker and Streamlit
 
 Development and deployment of a Random Forest Classifier using Spark ML to determine loan approval success based on individual profile and default status
 
-* Exploratory analysis using PySpark
+* Exploratory data analysis using PySpark
 * Feature engineering using Spark SQL
 * Model developement using Spark ML and Vector Assembler to create ML pipelines
 * Compiled models in separate pickle files to migrate from development to staging environment
 * Developed UI using Streamlit 
 * Build Docker Image to containerise model development
 * Establish API connect using Postman 
-* A Network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
+* A network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
 * Includes a CI/CD pipeline configured through GitHub Actions
 * Automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch
 
