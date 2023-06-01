@@ -18,7 +18,7 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 
 # Docker Images
 
-Docker images are hosted on Docker Hub and can be pulled using:
+Docker images are hosted on Docker Hub. Here is the command structure to pull an image:
 
 ```shell
 docker pull salmanmalik98/ml-ops-end-to-end-streamlitapi:latest
