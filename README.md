@@ -8,13 +8,13 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 * Exploratory analysis using PySpark
 * Feature engineering using Spark SQL
 * Model developement using Spark ML and Vector Assembler to create ML pipelines
-* Compiled models in seperate pickle files to migrate from development to staging environment
+* Compiled models in separate pickle files to migrate from development to staging environment
 * Developed UI using Streamlit 
 * Build Docker Image to containerise model development
 * Establish API connect using Postman 
-* Creates a network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
-* Includes a CI/CD pipeline configured through GitHub Actions. 
-* This pipeline is responsible for automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch. 
+* A Network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
+* Includes a CI/CD pipeline configured through GitHub Actions
+* Automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch
 
 # Docker Images
 
