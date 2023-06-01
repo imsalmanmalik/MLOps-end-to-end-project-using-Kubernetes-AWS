@@ -1,8 +1,6 @@
 # MLOps-end-to-end-project
 End-to-end prediction model development using PySpark with Docker and Streamlit
 
-### Adapted from the book 'Applied Data Science using PySpark' from R. Kakarla, S. Krishnan and S. Alla
-
 # Use Case
 
 Development and deployment of a Random Forest Classifier using Spark ML to determine loan approval success based on individual profile and default status
@@ -14,8 +12,9 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 * Developed UI using Streamlit 
 * Build Docker Image to containerise model development
 * Establish API connect using Postman 
-* Creates a network between these two containers so that the UI interacts with the backend PySpark API.
-* Includes a CI/CD pipeline configured through GitHub Actions. This pipeline is responsible for automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch. 
+* Creates a network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
+* Includes a CI/CD pipeline configured through GitHub Actions. 
+* This pipeline is responsible for automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch. 
 
 # Docker Images
 
