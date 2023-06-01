@@ -14,7 +14,8 @@ Development and deployment of a Random Forest Classifier using Spark ML to deter
 * Developed UI using Streamlit 
 * Build Docker Image to containerise model development
 * Establish API connect using Postman 
-* Create a Docker compose file to build CI/CD pipeline between the backend PySpark API and Streamlit API
+* Creates a network between these two containers so that the UI interacts with the backend PySpark API.
+* Includes a CI/CD pipeline configured through GitHub Actions. This pipeline is responsible for automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch. 
 
 # Docker Images
 
@@ -45,6 +46,15 @@ This will build docker image from local build context
 ```shell
 docker-compose up -d --build
 ```
-To access the UI, you need to insert the following link in the browser:
 
-(http://localhost:8501/)
+# Accessing the Application UI
+
+To interact with the application user interface, open a web browser and navigate to the following address: 
+
+http://localhost:8501/
+
+This will open the application's UI on your local machine, allowing you to interact directly with the application.
+You can go ahead and input the values for the features and click _Get Predictions_ to get results.
+
+
+
