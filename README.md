@@ -1,7 +1,7 @@
 # MLOps-end-to-end-project
 End-to-end prediction model development using PySpark with Docker and Streamlit
 
-Complete video here > https://youtu.be/t9k6RMFpCzY
+Complete demonstration of the project: https://youtu.be/t9k6RMFpCzY
 
 # Use Case
 
