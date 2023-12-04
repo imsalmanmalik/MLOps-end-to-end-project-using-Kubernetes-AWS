@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlitapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlitapi
+  template:
+    metadata:
+      labels:
+        app: streamlitapi
+    spec:
+      containers:
+      - name: streamlitapi
+        image: public.ecr.aws/d4r6m7g7/streamlit:latest
+        ports:
+        - containerPort: 8501

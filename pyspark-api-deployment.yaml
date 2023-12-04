@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pysparkapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pysparkapi
+  template:
+    metadata:
+      labels:
+        app: pysparkapi
+    spec:
+      containers:
+      - name: pysparkapi
+        image: public.ecr.aws/d4r6m7g7/pyspark:latest
+        ports:
+        - containerPort: 5000

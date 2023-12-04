@@ -6,7 +6,7 @@ import json
 st.title("PySpark Real Time Scoring API")
 
 #PySpark API Endpoint
-url = 'http://pysparkapi:5000'
+url = 'http://pysparkapi-service:5000'
 endpoint = '/api/'
 
 # description and instruction
