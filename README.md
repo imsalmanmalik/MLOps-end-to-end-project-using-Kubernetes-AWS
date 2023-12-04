@@ -1,60 +1,59 @@
 # MLOps-end-to-end-project
-End-to-end prediction model development using PySpark with Docker and Streamlit
 
-Complete demonstration of the project: https://youtu.be/t9k6RMFpCzY
+End-to-end prediction model development using PySpark with Docker and Streamlit, incorporating AWS Elastic Kubernetes Service (EKS) for deployment.
 
-# Use Case
+## Project Features
 
-Development and deployment of a Random Forest Classifier using Spark ML to determine loan approval success based on individual profile and default status
+- Exploratory Data Analysis and Feature Engineering using PySpark.
+- Model Development with Spark ML pipelines.
+- Serialization of models into pickle files for transitioning between environments.
+- Streamlit-based User Interface for real-time predictions.
+- Containerization of development environment with Docker.
+- API testing with Postman.
+- Networking setup between Docker containers for services communication.
+- CI/CD pipeline using GitHub Actions with Docker Hub.
+- Deployment and orchestration using Kubernetes on AWS EKS.
+- Images for EKS deployment are hosted on AWS Elastic Container Registry (ECR).
 
-* Exploratory data analysis using PySpark
-* Feature engineering using Spark SQL
-* Model developement using Spark ML and Vector Assembler to create ML pipelines
-* Compiled models in separate pickle files to migrate from development to staging environment
-* Developed UI using Streamlit 
-* Build Docker Image to containerise model development
-* Establish API connect using Postman 
-* A network between the two Docker containers—one for PySpark flask and the second one for the streamlit UI
-* Includes a CI/CD pipeline configured through GitHub Actions
-* Automating the process of building and deploying the Docker images for both the PySpark API and the Streamlit API, as soon as new commits are pushed onto the main branch
+## CI/CD Pipeline
 
-# Docker Images
+The CI/CD pipeline is configured with Docker Hub to automate the build and deployment process. However, for AWS EKS deployment, the images are available on AWS ECR.
 
-Docker images are hosted on Docker Hub. Here is the command structure to pull an image:
+## IAM Policies and AWS EKS Configuration
 
-```shell
-docker pull salmanmalik98/ml-ops-end-to-end-streamlitapi:latest
+The following IAM policies are required for provisioning an EKS cluster and its nodes:
+
+- **EKS Cluster IAM Role**: `AmazonEKSClusterPolicy`
+- **EKS Node IAM Role**: `AmazonEKSWorkerNodePolicy`, `AmazonEC2ContainerRegistryReadOnly`, `AmazonEKS_CNI_Policy`
+
+Configure your `kubeconfig` to access your AWS EKS cluster:
+
+```bash
+aws eks --region <region> update-kubeconfig --name <cluster-name>
+```
+## Docker Images
+While Docker images are built and pushed to Docker Hub via the CI/CD pipeline, the images used for EKS deployment are stored in ECR:
+
+```bash
+docker pull public.ecr.aws/d4r6m7g7/streamlit:latest
+docker pull public.ecr.aws/d4r6m7g7/pyspark:latest
+```
+## Kubernetes Manifests for EKS Deployment
+Apply the Kubernetes manifests to deploy the services:
+
+```bash
+kubectl apply -f pyspark-api-deployment.yaml
+kubectl apply -f pyspark-api-service.yaml
+kubectl apply -f streamlit-api-deployment.yaml
+kubectl apply -f streamlit-api-service.yaml
 ```
 
-```shell
-docker pull salmanmalik98/ml-ops-end-to-end-pysparkapi:latest
+## Accessing the Application UI
+The Streamlit UI is exposed via a LoadBalancer and can be accessed at the DNS name provided by AWS:
+
+```bash
+http://<LoadBalancer-DNS-name>:8501
 ```
-
-# Quick start
-
-By default docker-compose uses images defined in the file with `latest` tag.
-
-```shell
-docker-compose up -d
-```
-
-# Development
-
-When in development mode use below command to build the image to get quick feedback loop for fixes / new features.
-
-This will build docker image from local build context
-
-```shell
-docker-compose up -d --build
-```
-
-# Accessing the Application UI
-
-To interact with the application user interface, open a web browser and navigate to the following address: 
-
-http://localhost:8501/
-
-This will open the application's UI on your local machine, allowing you to interact directly with the application.
-You can go ahead and input the values for the features and click _Get Predictions_ to get results.
-
+## Conclusion
+This project demonstrates a comprehensive MLOps workflow integrating Docker, Kubernetes, and AWS services, from development through to a scalable production deployment.
 
