@@ -15,6 +15,24 @@ End-to-end prediction model development using PySpark with Docker and Streamlit,
 - Deployment and orchestration using Kubernetes on AWS EKS.
 - Images for EKS deployment are hosted on AWS Elastic Container Registry (ECR).
 
+## Using Docker for Deployment (Alternative to Kubernetes)
+
+For those preferring Docker over Kubernetes, you can build your own images and use the provided `docker-compose.yml` file to run the services.
+
+Build your own images:
+
+```bash
+docker build -t your-custom-streamlit-image ./streamlitapi
+docker build -t your-custom-pyspark-image ./pysparkapi
+```
+Run the services using Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+This will use the docker-compose.yml file to start the services locally without the need for Kubernetes.
+
 ## CI/CD Pipeline
 
 The CI/CD pipeline is configured with Docker Hub to automate the build and deployment process. However, for AWS EKS deployment, the images are available on AWS ECR.
