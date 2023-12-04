@@ -33,7 +33,7 @@ docker-compose up -d
 
 This will use the docker-compose.yml file to start the services locally without the need for Kubernetes.
 
-**Note**: Replace url in your Streamlit application `webapp.py` with the string `http://pyspark:5000`. As currently it is set up for the Streamlit application to properly resolve and communicate with the PySpark API service within the Kubernetes cluster.
+**Note**: Replace url in your Streamlit application `webapp.py` with the string `http://pysparkapi:5000`. As currently it is set up for the Streamlit application to properly resolve and communicate with the PySpark API service within the Kubernetes cluster.
 
 ## CI/CD Pipeline
 
